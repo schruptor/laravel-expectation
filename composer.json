@@ -1,0 +1,36 @@
+{
+  "name": "schruptor/laravel-expectation",
+  "description": "A class to validate assertions, especialy with laravel/collections",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "schruptor",
+      "email": "schruptor+expectation@mailbox.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.2.0",
+    "schruptor/expectation": "dev-master",
+    "laravel/framework": "7.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Schruptor\\LaravelExpectation\\": "src"
+    },
+    "files": [
+      "src/functions.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Schruptor\\LaravelExpectation\\Tests\\": "tests"
+    }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.0",
+    "pestphp/pest": "^0.2.4",
+    "larapack/dd": "dev-master"
+  }
+}
