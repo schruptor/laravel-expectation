@@ -3,6 +3,9 @@
 namespace Schruptor\LaravelExpectation;
 
 use Illuminate\Support\Collection;
+use Schruptor\Expectation\ArrayExpectation;
+use Schruptor\Expectation\StringExpectation;
+use Schruptor\Expectation\NumericExpectation;
 
 class Expectation extends \Schruptor\Expectation\Expectation
 {
@@ -11,7 +14,7 @@ class Expectation extends \Schruptor\Expectation\Expectation
 
     protected $translationClass = Translator::class;
 
-    private function __construct($expected)
+    protected function __construct($expected)
     {
         $this->expected = $expected;
     }

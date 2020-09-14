@@ -23,3 +23,8 @@ beforeEach(function () {
 it('asserts that an collection return the CollectionExpectation', function () {
     assertTrue(Expectation::isThat($this->string) instanceof StringExpectation);
 });
+
+it('can access the parents class functions', function () {
+    assertTrue(Expectation::isThat($this->integer)->isInt()->resolve());
+    assertTrue(Expectation::isThat($this->string)->isString()->isLongerThan(5)->resolve());
+});
