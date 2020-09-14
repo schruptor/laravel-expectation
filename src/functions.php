@@ -2,9 +2,9 @@
 
 namespace Schruptor\LaravelExpectation;
 
-use Schruptor\LaravelExpectation\Expectation;
+use Schruptor\Expectation\Expectation as DefaultExpectation;
 
-function expect($expected) : Expectation
+function expect($expected) : DefaultExpectation
 {
     return Expectation::isThat($expected);
 }

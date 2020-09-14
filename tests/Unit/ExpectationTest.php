@@ -3,7 +3,7 @@ namespace Schruptor\LaravelExpectation\Tests;
 
 use Schruptor\Expectation\Expectation;
 use Schruptor\Expectation\StringExpectation;
-use function Schruptor\LaravelExpectation\expect;
+use Schruptor\LaravelExpectation;
 
 beforeEach(function () {
     $this->string = 'Testing';
@@ -26,5 +26,7 @@ it('asserts that an collection return the CollectionExpectation', function () {
 
 it('can access the parents class functions', function () {
     assertTrue(Expectation::isThat($this->integer)->isInt()->resolve());
+    assertTrue(LaravelExpectation\expect($this->integer)->isInt()->resolve());
     assertTrue(Expectation::isThat($this->string)->isString()->isLongerThan(5)->resolve());
+    assertTrue(LaravelExpectation\expect($this->string)->isString()->isLongerThan(5)->resolve());
 });
