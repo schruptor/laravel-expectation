@@ -16,7 +16,10 @@ beforeEach(function () {
 it('can get the translation for collection', function () {
     $arrayTroughClass = $this->translator->get(get_class(expect($this->collection)));
 
-    $arrayThroughVariable = array_merge($this->translator->getLookup()[CollectionExpectation::class], $this->translator->getLookup()['Schruptor\Expectation\Expectation']);
+    $arrayThroughVariable = array_merge(
+        $this->translator->getLookup('CollectionExpectation'),
+        $this->translator->getLookup('Expectation')
+    );
 
     assertEquals($arrayThroughVariable, $arrayTroughClass);
 });

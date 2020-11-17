@@ -4,13 +4,28 @@ namespace Schruptor\LaravelExpectation;
 
 class Translator extends \Schruptor\Expectation\Translator
 {
-    public static $laravelLookup = [
-        CollectionExpectation::class => [
+    public $collectionLookup = [
+        'CollectionExpectation' => [
         ],
     ];
 
-    public function getLookup()
+    public function __construct()
     {
-        return array_merge(static::$lookup, static::$laravelLookup);
+        $this->collectionLookup['Expectation'] = $this->lookup['Expectation'];
+    }
+
+    public function getLookup(string $name = null) : array
+    {
+        if ($name && key_exists($name, $this->lookup)) {
+            array_merge(
+                $this->lookup[$name],
+                $this->collectionLookup
+            );
+        }
+
+        return array_merge(
+            $this->lookup,
+            $this->collectionLookup
+        );
     }
 }
